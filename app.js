@@ -56,5 +56,13 @@ app.use(function(err, req, res, next) {
   });
 });
 
+var db = require('./db');
+db.connect('mongodb://localhost/users', function (err) {
+  if (err) {
+    console.log(err);
+    throw err;
+  }
+});
+
 
 module.exports = app;
