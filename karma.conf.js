@@ -20,6 +20,8 @@ module.exports = function(config) {
             'node_modules/angular2/bundles/angular2-all.umd.js',
             './test/client/**/*.js',
 
+            './public/src/users/app/users.component.js',
+            './public/src/users/app/users.service.js',
             './public/src/users/main.js'
         ],
 
