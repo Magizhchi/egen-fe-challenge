@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
 router.post('/', function (req, res, next) {
     var newUser = req.body;
 
-    console.log('Log is working');
+    console.log('Log is working : ' + newUser.toString());
     
     var callback = function (err) {
         if (err)

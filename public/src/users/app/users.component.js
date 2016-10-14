@@ -33,7 +33,7 @@
             },
 
             updateError: function (err) {
-                this.errorMessage += err;
+                this.errorMessage = err;
             },
             
             updateUsers: function (data) {
