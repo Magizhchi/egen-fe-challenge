@@ -6,10 +6,10 @@
     "startdb": "mongod --dbpath db",
     "stopdb": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\"",
     "prestart": "copyup node_modules/angular2/**/* node_modules/angular2/**/.* public/javascripts ; copyup node_modules/rxjs/**/* node_modules/rxjs/**/.* public/javascripts",
-//    "test-server": "mocha --watch --recursive test/server",
-//    "cover-server": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter min --recursive test/server",
+    "test-server": "mocha --watch --recursive test/server",
+    "cover-server": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter min --recursive test/server",
     "test-client": "karma start --reporters dots",
-//    "cover-client": "karma start --reporters dots,coverage --single-run",
+    "cover-client": "karma start --reporters dots,coverage --single-run",
     "update-driver": "webdriver-manager update",
     "start": "node ./bin/www"
   },
