@@ -9,7 +9,7 @@
                this.http = _http;
            }],
 
-           get: function () {
+           getAllUsers: function () {
                return this.http.get('/users')
                                 .map(this.extractData);
            },

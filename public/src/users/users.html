@@ -1,1 +1,10 @@
 <h1>Hello from Component</h1>
+
+<p>{{errorMessage}}</p>
+<table>
+    <tr><th>Name</th><th>Phone</th></tr>
+    <tr *ngFor="let user of usersList">
+        <td>{{user.name}}</td>
+        <td>{{user.phone}}</td>
+    </tr>
+</table>
