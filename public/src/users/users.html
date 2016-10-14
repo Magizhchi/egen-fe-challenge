@@ -15,6 +15,6 @@
     <tr><th>Name</th><th>Phone</th></tr>
     <tr *ngFor="let user of usersList">
         <td>{{user.name}}</td>
-        <td>{{user.phone}}</td>
+        <td>{{user.phone | telFormat}}</td>
     </tr>
 </table>

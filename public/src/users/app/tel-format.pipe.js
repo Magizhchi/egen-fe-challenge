@@ -1,3 +1,13 @@
-/**
- * Created by Karthikk on 10/14/2016.
- */
+(function (app) {
+    app.TelFormatPipe = ng.core
+        .Pipe({
+            name: 'telFormat'
+        })
+        .Class({
+            constructor: function() {},
+            transform: function (phone) {
+                return phone + '###';
+            }
+
+        })
+}) (window.app || (window.app = {}));

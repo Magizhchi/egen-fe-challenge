@@ -7,6 +7,7 @@
         .Component({
             selector: 'egen',
             templateUrl: 'src/users/users.html',
+            pipes: [app.TelFormatPipe],
             providers: [ng.http.HTTP_PROVIDERS, app.UsersService]
         })
         .Class({
@@ -39,8 +40,7 @@
             updateUsers: function (data) {
                 if (Object.keys(data).length === 0)
                     this.errorMessage = "No Users Found Yet";
-                console.log(data);
-                this.usersList = data;                
+                this.usersList = data;
             },
             
             ngOnInit: function() {
