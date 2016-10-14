@@ -17,12 +17,6 @@ describe('user component tests', function () {
         usersComponent = new app.UsersComponent(usersService, formatPipe);
 
         sandbox = sinon.sandbox.create();
-
-        sandbox.stub(usersComponent.successMessage, 'bind')
-            .withArgs(usersComponent)
-            .returns(updateMessageBindStub);
-
-
     });
 
     afterEach(function () {
@@ -61,5 +55,19 @@ describe('user component tests', function () {
     it('updateError should update message', function() {
         usersComponent.updateError('Not Found');
         expect(usersComponent.errorMessage).to.be.eql('Not Found');
+    });
+
+    it('getUsers should be called on init', function() {
+        var getPeopleMock = sandbox.mock(usersComponent)
+                                    .expects('getUsers');
+
+        usersComponent.ngOnInit();
+        getPeopleMock.verify();
+    });
+
+    it('successMessage should update message and call getUsers', function(done) {
+        usersComponent.getUsers = function() { done(); };
+        usersComponent.successMessage('good');
+        expect(usersComponent.message).to.be.eql('good');
     });
 })
