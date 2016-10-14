@@ -14,6 +14,13 @@
                                 .map(this.extractData);
            },
 
+           add: function(data) {
+               var options = {headers: new ng.http.Headers({'Content-Type': 'application/json'})};
+                console.log(data);
+               return this.http.post('/users', JSON.stringify(data), options)
+                   .map(this.extractData)
+           },
+
            extractData :function (response) {
                if(response.status !== 200)
                    throw new Error('Request failed with status: '+ response.status);

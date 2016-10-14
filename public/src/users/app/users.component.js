@@ -14,11 +14,22 @@
                 this.service = _service;
                 this.errorMessage = '';
                 this.usersList = [];
+                this.newUser = {};
             }],
             
             getUsers: function() {
                 this.service.getAllUsers()
                     .subscribe(this.updateUsers.bind(this), this.updateError.bind(this));
+            },
+            
+            addUser: function() {
+                this.service.add(this.newUser) 
+                    .subscribe(this.successMessage.bind(this), this.updateError.bind(this));
+            },
+            
+            successMessage: function() {
+                this.errorMessage = "Successfully Added New User!!";
+                this.getUsers();
             },
 
             updateError: function (err) {
