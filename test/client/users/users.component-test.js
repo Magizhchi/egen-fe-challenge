@@ -1,4 +1,20 @@
 describe('user component tests', function () {
+    var usersComponent;
+    var usersService;
+    var formatPipe = { transform: function (data) { return data; }};
+
+    beforeEach(function() {
+        usersService = {
+            getAllUsers: function () { },
+            add: function () { },
+        };
+
+        usersComponent = new app.UsersComponent(usersService, formatPipe);
+    });
+
+    afterEach(function () {
+    });
+
     it('Canary Test', function () {
     });
 
@@ -15,10 +31,10 @@ describe('user component tests', function () {
     });
 
     it('should initialize errorMessage to an empty string', function() {
-        expect(use.message).to.be.eql('');
+        expect(usersComponent.errorMessage).to.be.eql('');
     });
 
-    // it('should initialize people to an empty array', function() {
-    //     expect(peopleComponent.people).to.be.eql([]);
-    // });
+    it('should initialize people to an empty array', function() {
+        expect(usersComponent.usersList).to.be.eql([]);
+    });
 })
