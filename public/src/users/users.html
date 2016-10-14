@@ -1,4 +1,14 @@
-<h1>Hello from Component</h1>
+<link rel="stylesheet" type="text/css" href="../../stylesheets/table.css">
+
+<div id="usersTable">
+    <table id="disableTableBackground">
+        <tr>
+            <td><input [(ngModel)]="newUser.name" type="text" placeholder="Name"></td>
+            <td><input [(ngModel)]="newUser.phone" type="text" placeholder="Phone"></td>
+        </tr>
+    </table>
+    <button (click)="addUser()">Add New User</button>
+</div>
 
 <p>{{errorMessage}}</p>
 <table>

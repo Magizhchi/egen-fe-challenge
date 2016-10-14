@@ -1,0 +1,24 @@
+table tr:nth-of-type(even){
+    background-color: #eeeeee;
+}
+
+table tr:nth-of-type(odd) {
+    background-color: #ffffff;
+}
+
+table th{
+    background-color: #dddddd;
+}
+
+table {
+    line-height: 2;
+    width: 400px;
+}
+
+table #disableTableBackground{
+    background-color: #eeeeee;
+}
+
+div #usersTable{
+    background-color: aliceblue;
+}
