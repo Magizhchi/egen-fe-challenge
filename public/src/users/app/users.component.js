@@ -6,7 +6,7 @@
     app.UsersComponent = ng.core
         .Component({
             selector: 'egen',
-            templateUrl: ''
+            templateUrl: 'src/users/users.html'
         })
         .Class({
             constructor: function () {}
