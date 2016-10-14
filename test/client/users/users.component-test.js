@@ -1,6 +1,11 @@
 describe('user component tests', function () {
+    var sandbox;
     var usersComponent;
     var usersService;
+    var observable = { subscribe: function(){} };
+    var updateUsersBindStub = function () { };
+    var updateErrorBindStub = function () { };
+    var updateMessageBindStub = function() {};
     var formatPipe = { transform: function (data) { return data; }};
 
     beforeEach(function() {
@@ -10,9 +15,18 @@ describe('user component tests', function () {
         };
 
         usersComponent = new app.UsersComponent(usersService, formatPipe);
+
+        sandbox = sinon.sandbox.create();
+
+        sandbox.stub(usersComponent.successMessage, 'bind')
+            .withArgs(usersComponent)
+            .returns(updateMessageBindStub);
+
+
     });
 
     afterEach(function () {
+        sandbox.restore();
     });
 
     it('Canary Test', function () {
@@ -36,5 +50,16 @@ describe('user component tests', function () {
 
     it('should initialize people to an empty array', function() {
         expect(usersComponent.usersList).to.be.eql([]);
+    });
+
+    it('updateUsers should update user', function () {
+        var userStub = [{sample: 1}];
+        usersComponent.updateUsers(userStub);
+        expect(usersComponent.usersList).to.be.eql(userStub);
+    });
+
+    it('updateError should update message', function() {
+        usersComponent.updateError('Not Found');
+        expect(usersComponent.errorMessage).to.be.eql('Not Found');
     });
 })
