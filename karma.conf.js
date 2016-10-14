@@ -21,6 +21,7 @@ module.exports = function(config) {
             './test/client/**/*.js',
 
             './public/src/users/app/users.component.js',
+            './public/src/users/app/tel-format.pipe.js',
             './public/src/users/app/users.service.js',
             './public/src/users/main.js'
         ],
